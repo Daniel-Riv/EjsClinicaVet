@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../templates/navbarLater')%>
+    <div id="viewport">
+        <div id="content">
+            <nav class="navbar navbar-default"></nav>
+            <div class="container-fluid">
+                <div class="container-fluid px-1 py-5 mx-auto">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                            <div class="card">
+                                <h5 class="text-center mb-4">
+                                    Ingresar Datos de Persona
+                                </h5>
+                                <form class="form-card" action="/updateperson/<%= persona._id %>" method="PUT">
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                            <label class="form-control-label px-3">Nombre<span class="text-danger">
+                                                    *</span></label>
+                                            <input type="text"  name="name"
+                                                placeholder="Enter your first name" value="<%= persona.name %>"/>
+                                        </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                            <label class="form-control-label px-3">Apellido<span class="text-danger">
+                                                    *</span></label>
+                                            <input type="text"  name="lastName"
+                                                placeholder="Enter your last name" value="<%= persona.lastName %>"/>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                            <label class="form-control-label px-3">Celular<span class="text-danger">
+                                                    *</span></label>
+                                            <input type="number"  name="phone" placeholder="" value="<%= persona.phone %>"/>
+                                        </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                            <label class="form-control-label px-3">Direccion<span class="text-danger">
+                                                    *</span></label>
+                                            <input type="text"  name="direction" placeholder="" value="<%= persona.direction %>"/>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                            <label class="form-control-label px-3">Nombre de la mascota<span
+                                                    class="text-danger"> *</span></label>
+                                            <input type="text"  name="nameMascot" placeholder="" value="<%= persona.nameMascot %>"/>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                            <label class="form-control-label px-3">Raza<span
+                                                    class="text-danger"> *</span></label>
+                                            <input type="text"  name="razaMascot" placeholder="" value="<%= persona.razaMascot %>" />
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                            <label class="form-control-label px-3">Descripcion<span
+                                                    class="text-danger"> *</span></label>
+                                            <input type="text"  name="descriptionMascot" placeholder=""  value="<%= persona.descriptionMascot %>"/>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="form-group col-sm-6">
+                                            <button type="submit" class="btn-block btn-primary">
+                                                Actualizar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
