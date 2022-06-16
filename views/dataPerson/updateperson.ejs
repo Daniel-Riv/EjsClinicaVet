@@ -4,9 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Actualizar</title>
 </head>
 <body>
+    <style>
+        .card {
+            padding: 30px 50px;
+            margin-top: 10px;
+            margin-bottom: 60px;
+            border: none !important;
+            box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .blue-text {
+            color: #00bcd4;
+        }
+
+        .form-control-label {
+            margin-bottom: 0;
+        }
+
+        .test{
+            display: flex;
+            flex-direction: column;
+        }
+
+        input,
+        textarea,
+        button {
+            padding: 8px 15px;
+            border-radius: 5px !important;
+            margin: 5px 0px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            font-size: 18px !important;
+            font-weight: 300;
+        }
+
+        input:focus,
+        textarea:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 1px solid #00bcd4;
+            outline-width: 0;
+            font-weight: 400;
+        }
+
+        .btn-block {
+            text-transform: uppercase;
+            font-size: 15px !important;
+            font-weight: 400;
+            height: 43px;
+            cursor: pointer;
+        }
+
+        .btn-block:hover {
+            color: #fff !important;
+        }
+
+        button:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            outline-width: 0;
+        }
+    </style>
     <%- include('../templates/navbarLater')%>
     <div id="viewport">
         <div id="content">
@@ -17,58 +80,59 @@
                         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
                             <div class="card">
                                 <h5 class="text-center mb-4">
-                                    Ingresar Datos de Persona
+                                    Actualizar datos de la persona
                                 </h5>
-                                <form class="form-card" action="/updateperson/<%= persona._id %>" method="PUT">
+                                <form class="form-card" action="/updateperson/<%= persona[0]._id %>" method="POST">
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Nombre<span class="text-danger">
                                                     *</span></label>
-                                            <input type="text"  name="name"
-                                                placeholder="Enter your first name" value="<%= persona.name %>"/>
+                                            <input type="text"  name="name" value="<%= persona[0].name %>"/>
                                         </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Apellido<span class="text-danger">
                                                     *</span></label>
                                             <input type="text"  name="lastName"
-                                                placeholder="Enter your last name" value="<%= persona.lastName %>"/>
+                                                placeholder="Enter your last name" value="<%= persona[0].lastName %>"/>
                                         </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Celular<span class="text-danger">
                                                     *</span></label>
-                                            <input type="number"  name="phone" placeholder="" value="<%= persona.phone %>"/>
+                                            <input type="number"  name="phone" placeholder="" value="<%= persona[0].phone %>"/>
                                         </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Direccion<span class="text-danger">
                                                     *</span></label>
-                                            <input type="text"  name="direction" placeholder="" value="<%= persona.direction %>"/>
+                                            <input type="text"  name="direction" placeholder="" value="<%= persona[0].direction %>"/>
                                         </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Nombre de la mascota<span
                                                     class="text-danger"> *</span></label>
-                                            <input type="text"  name="nameMascot" placeholder="" value="<%= persona.nameMascot %>"/>
+                                            <input type="text"  name="nameMascot" placeholder="" value="<%= persona[0].nameMascot %>"/>
                                         </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Raza<span
                                                     class="text-danger"> *</span></label>
-                                            <input type="text"  name="razaMascot" placeholder="" value="<%= persona.razaMascot %>" />
+                                            <input type="text"  name="razaMascot" placeholder="" value="<%= persona[0].razaMascot %>" />
                                         </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Descripcion<span
                                                     class="text-danger"> *</span></label>
-                                            <input type="text"  name="descriptionMascot" placeholder=""  value="<%= persona.descriptionMascot %>"/>
+                                            <input type="text"  name="descriptionMascot" placeholder=""  value="<%= persona[0].descriptionMascot %>"/>
                                         </div>
                                     </div>
+                                    <br>
+                                    <br>
                                     <div class="row justify-content-end">
-                                        <div class="form-group col-sm-6">
+                                        <div class="test col-sm-6">
                                             <button type="submit" class="btn-block btn-primary">
                                                 Actualizar
                                             </button>

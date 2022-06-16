@@ -3,6 +3,7 @@
 
 <head>
     <%- include('../templates/navbarLater')%>
+    <title>Agregar</title>
 </head>
 
 <body>
@@ -21,6 +22,11 @@
 
         .form-control-label {
             margin-bottom: 0;
+        }
+
+        .test{
+            display: flex;
+            flex-direction: column;
         }
 
         input,
@@ -66,6 +72,7 @@
     </style>
     <div id="viewport">
         <div id="content">
+            <%- include('../partial/erros')%>
             <nav class="navbar navbar-default"></nav>
             <div class="container-fluid">
                 <div class="container-fluid px-1 py-5 mx-auto">
@@ -77,54 +84,55 @@
                                 </h5>
                                 <form class="form-card" action="/add" method="POST">
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex">
-                                            <label class="form-control-label px-3">Nombre<span class="text-danger">
+                                        <div class="test col-sm-6">
+                                            <label class="form-control-label px-10">Nombre<span class="text-danger">
                                                     *</span></label>
                                             <input type="text"  name="name"
-                                                placeholder="Enter your first name" />
+                                                placeholder="" />
                                         </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Apellido<span class="text-danger">
                                                     *</span></label>
                                             <input type="text"  name="lastName"
-                                                placeholder="Enter your last name" />
+                                                placeholder="" />
                                         </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Celular<span class="text-danger">
                                                     *</span></label>
                                             <input type="number"  name="phone" placeholder="" />
                                         </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Direccion<span class="text-danger">
                                                     *</span></label>
                                             <input type="text"  name="direction" placeholder="" />
                                         </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Nombre de la mascota<span
                                                     class="text-danger"> *</span></label>
                                             <input type="text"  name="nameMascot" placeholder=""/>
                                         </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Raza<span
                                                     class="text-danger"> *</span></label>
                                             <input type="text"  name="razaMascot" placeholder="" />
                                         </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex">
+                                        <div class="test col-sm-6">
                                             <label class="form-control-label px-3">Descripcion<span
                                                     class="text-danger"> *</span></label>
                                             <input type="text"  name="descriptionMascot" placeholder="" />
                                         </div>
                                     </div>
+                                    <br>
                                     <div class="row justify-content-end">
-                                        <div class="form-group col-sm-6">
+                                        <div class="test col-sm-6">
                                             <button type="submit" class="btn-block btn-primary">
                                                 Agregar
                                             </button>

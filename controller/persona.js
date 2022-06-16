@@ -40,7 +40,8 @@ const createdPersona = async (req, res) => {
             })
         }
         if (erros.length > 0) {
-            res.render('/dataPerson/addPersona', {erros,name,lastName, phone, direction,nameMascot,razaMascot,descriptionMascot})
+            req.flash('error_msg', 'Error al crear persona; Ingrese todos los campos');
+            res.redirect('/persona');
         }else{
             const persona = new Pesona({name,lastName,phone,direction,nameMascot,razaMascot,descriptionMascot});
             await persona.save();
@@ -51,9 +52,7 @@ const createdPersona = async (req, res) => {
 
 const getPersonas = async (req, res) => {
     const personas = await Pesona.find();
-    const {_id:id} = personas;
-    console.log(id);
-    res.render('dataPerson/AllPerson', {personas,id});
+    res.render('dataPerson/AllPerson', {personas, success_msg: req.flash('success_msg')[0]});
     
 }
 
@@ -65,8 +64,10 @@ const getPersona = async (req, res) => {
 const updatePerosna = async (req, res) => {
     const { name, lastName, phone, direction,nameMascot,razaMascot,descriptionMascot} = req.body;
     const persona = await Pesona.findByIdAndUpdate(req.params.id, {name,lastName,phone,direction,nameMascot,razaMascot,descriptionMascot});
+    await persona.save();
+    console.log(persona);
     req.flash('success_msg', 'Persona actualizada correctamente');
-    res.render('dataPerson/updateperson',{persona});
+    res.redirect('/dataPerson/AllPerson');
 }
 
 const deletePersona = async (req, res) => {
@@ -76,11 +77,26 @@ const deletePersona = async (req, res) => {
     res.redirect('/dataPerson/AllPerson');
 }
 
+const viewDelete = async (req, res) => {
+    const personas = await Pesona.find();
+    res.render('dataPerson/deletePersona', {personas});
+    
+}
+
+const viewUpdate = async (req, res) => {
+    const {id} = req.params;
+    const persona = await Pesona.find({_id:id});
+    res.render('dataPerson/updateperson', {persona});
+    
+}
+
 module.exports = {
     createdPersona,
     getPersonas,
     getPersona,
     updatePerosna,
-    deletePersona
+    deletePersona,
+    viewDelete,
+    viewUpdate
 
 }

@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <%- include('../templates/navbarLater')%>
+  <title>Personas</title>
 </head>
 <body>
-    <%- include('../templates/navbarLater')%>
+   
     <div id="viewport">
         <div id="content">
             <div class="container-fluid">
-                <table class="table table-dark">
+                <table class="table table-light">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
@@ -22,6 +20,7 @@
                         <th scope="col">Nombre mascota</th>
                         <th scope="col">Raza</th>
                         <th scope="col">Descripcion</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
@@ -35,18 +34,19 @@
                                 <td><%= personas[i].nameMascot %></td>
                                 <td><%= personas[i].razaMascot %></td>
                                 <td><%= personas[i].descriptionMascot %></td>
-                                <td><a href="/onePersona/<%= personas[i]._id %>">Ver</a></td>
-                                <td><a href="/updateperson/<%= personas[i]._id %>">Actualizar</a></td>
-                                <td><a href="/deletePersona/<%= personas[i]._id %>">Eliminar</a></td>
-
+                                <td><a class="btn btn-primary" href="/onePersona/<%= personas[i]._id %>">Ver</a></td>
+                                <td><a class="btn btn-primary" href="/update/<%= personas[i]._id %>">Actualizar</a></td>
+                                <td><a class="btn btn-primary" href="/deletePersona/<%= personas[i]._id %>">Eliminar</a></td>
                             </tr>
                         <% } %>
                     </tbody>
                   </table>
-            </div>   
+            </div> 
+          </div>
+          <%- include('../partial/mjs')%>
             </div>
             </div>
-   
-    
+          
+            <%- include('../templates/footer')%>
 </body>
 </html>

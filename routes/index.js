@@ -8,8 +8,12 @@ router.get('/', (req, res) => {
     res.render('index');  //Ruta principal
 });
 
+router.get('/', (req, res) => {
+    res.render('singIn');  //Ruta principal
+});
+router.get('/', (req, res) => {
+    res.render('singnUp');  //Ruta principal
+});
 
-
-//router.post('/singnIn', singnIn);
 
 module.exports = router;

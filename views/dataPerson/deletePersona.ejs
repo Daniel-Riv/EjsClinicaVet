@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Eliminar</title>
 </head>
 <body>
     <%- include('../templates/navbarLater')%>
@@ -35,7 +35,7 @@
                                 <td><%= personas[i].nameMascot %></td>
                                 <td><%= personas[i].razaMascot %></td>
                                 <td><%= personas[i].descriptionMascot %></td>
-                                <td><a href="/deletePersona/<%= personas[i]._id %>">Eliminar</a></td>
+                                <td><a class="btn btn-primary" href="/deletePersona/<%= personas[i]._id %>">Eliminar</a></td>
 
                             </tr>
                         <% } %>
